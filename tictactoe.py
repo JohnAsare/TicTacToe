@@ -36,7 +36,7 @@ def player_input():
     return player1, player2
 
 
-player_input()
+player1_maker, player2_maker = player_input()
 
 
 # def place_marker(board, marker, position):
