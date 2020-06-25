@@ -7,7 +7,7 @@
 
 # A function to print out the Tic Tac Toe board
 def display_board(board):
-    #print('\n'*100)
+    # print('\n'*100)
     print(board[7] + '|' + board[8] + '|' + board[9])
     print('-----')
     print(board[4] + '|' + board[5] + '|' + board[6])
@@ -15,7 +15,7 @@ def display_board(board):
     print(board[1] + '|' + board[2] + '|' + board[3])
 
 
-test_board = [' ']*10
+test_board = [' '] * 10
 display_board(test_board)
 
 
@@ -39,11 +39,9 @@ def player_input():
 player1_maker, player2_maker = player_input()
 
 
-# def place_marker(board, marker, position):
-#
-#
-#
-# place_marker(test_board,'$',8)
-# display_board(test_board)
+def place_marker(board, marker, position):
+    board[position] = marker
 
-
+print('\n'*100)
+place_marker(test_board, '$', 8)
+display_board(test_board)
