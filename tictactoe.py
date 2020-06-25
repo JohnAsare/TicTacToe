@@ -7,7 +7,9 @@
 
 # A function to print out the Tic Tac Toe board
 def display_board(board):
-    pass
+    print(board[7] + '|' + board[8] + '|' + board[9])
+    print(board[7] + '|' + board[8] + '|' + board[9])
+    print(board[7] + '|' + board[8] + '|' + board[9])
 
 
 test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
