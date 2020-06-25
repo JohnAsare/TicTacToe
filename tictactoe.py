@@ -24,16 +24,14 @@ def player_input():
     check = ''
 
     while check != 'X' and check != 'O':
-        check = input('What maker do you want to be? (X or O): ')
+        check = input('What maker do you want to be? (X or O): ').upper()
 
-    player1 = check
-    if player1 == 'X':
-        print('Opponent is O')
-        player2 = 'O'
+    if check == 'X':
+        print(f'Okay, you are {check} and your opponent is O')
+        return 'X', 'O'
     else:
-        print('Opponent is X')
-        player2 = 'X'
-    return player1, player2
+        print(f'Okay, you are {check} and your opponent is X')
+        return 'O', 'X'
 
 
 player1_maker, player2_maker = player_input()
@@ -44,12 +42,14 @@ def place_marker(board, marker, position):
 
 
 print('\n' * 100)
+place_marker(test_board, player1_maker, 7)
 place_marker(test_board, player1_maker, 8)
+place_marker(test_board, player1_maker, 9)
 display_board(test_board)
 
 
 def win_check(board, mark):
-    return board[8] == mark
+    return board[7:9] == mark, mark, mark
 
 
 print(win_check(test_board, 'X'))
