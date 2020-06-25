@@ -42,6 +42,14 @@ player1_maker, player2_maker = player_input()
 def place_marker(board, marker, position):
     board[position] = marker
 
-print('\n'*100)
-place_marker(test_board, '$', 8)
+
+print('\n' * 100)
+place_marker(test_board, player1_maker, 8)
 display_board(test_board)
+
+
+def win_check(board, mark):
+    return board[8] == mark
+
+
+print(win_check(test_board, 'X'))
