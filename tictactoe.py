@@ -19,13 +19,19 @@ display_board(test_board)
 
 # Ask users for what marker do they want.
 def player_input():
-    marker = ' '
-    while marker != 'X' or marker != 'O':
-        player1 = input('Which maker do you want to be? ("X" or "Y"): ')
+    check = ''
+
+    while check != 'X' or check != 'Y':
+        player1 = input('What maker do you want? (X or Y): ')
 
         if player1 == 'X':
-            marker = 'X'
             player2 = 'Y'
+            print(f'Opponent is Y')
+            break
+        elif player1 == 'Y':
+            player2 = 'X'
+            print(f'Opponent is X')
+            break
 
 
 player_input()
