@@ -49,7 +49,12 @@ display_board(test_board)
 
 
 def win_check(board, mark):
-    return board[7:9] == mark, mark, mark
+    won = [mark, mark, mark]
+    for pos in range(0, 10):
+        if (board[1:4] == board[4:7] == board[7:10] == won or
+                board[1:8:3] == board[2:9:3] == board[3:10:3] == won or
+                board[1:10:4] == board[3:8:2] == won):
+            return True
 
 
 print(win_check(test_board, 'X'))
