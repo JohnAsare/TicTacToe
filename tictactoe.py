@@ -59,7 +59,7 @@ def win_check(board, mark):
         return True
 
 
-(win_check(test_board, 'X'))
+print((win_check(test_board, 'X')))
 
 
 def choose_first():
