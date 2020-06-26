@@ -39,6 +39,7 @@ def player_input():
 # Place the player's marker at the position they will choose
 def place_marker(board, marker, position):
     board[position] = marker
+    display_board(board)
 
 
 # Check to see if there is a win
@@ -71,13 +72,13 @@ def full_board_check(board):
     return True
 
 
-# Ask the player for their next moves
+# Ask the player for their move
 def player_choice(board):
-    next_move = 0
-    while next_move not in [range(1, 10)] or space_check(board, next_move):
-        next_move = int(input('What is your next moves?(1-9): '))
+    move = 0
+    while move not in [range(1, 10)] or space_check(board, move):
+        move = int(input('What is your move?(1-9): '))
 
-    return next_move
+    return move
 
 
 # Ask user if they want to play again
@@ -95,20 +96,43 @@ while True:
 
     # Set up the board
     the_board = [' '] * 10
-    display_board(the_board)
     # Assign the maker
     player1_maker, player2_maker = player_input()
     # Randomly pick who goes first
     goes_first = choose_first()
     print(f'{goes_first} aka {player1_maker} will go first')
 
-    play_game = ''
-    while play_game != 'y' or play_game != 'n':
-        play_game = input('Ready to play? (Y or N): ').lower()
+    # Ask if they are ready to play
+    # play_game = ' '
+    # while play_game != 'y' or play_game != 'n':
+    play_game = input('Ready to play? (Y or N): ').lower()
     if play_game == 'y':
         game_on = True
     else:
         game_on = False
+
+    # if they say Y, then let player start playing
+    while game_on:
+        if goes_first == 'Player 1':
+            # Display the board
+            display_board(the_board)
+            # Ask for their move
+            pos = player_choice(the_board)
+            # Place their maker on the board
+            place_marker(the_board, player1_maker, pos)
+            # check if they won
+            if win_check(the_board, player1_maker):
+                display_board(the_board)
+                print('You won!')
+                game_on = False
+            # Check if it is a tie
+            elif full_board_check(the_board):
+                display_board(the_board)
+                print('Its a tie')
+            else:
+                goes_first = 'Player 2'
+
+
 
 
     if not replay():
