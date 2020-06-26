@@ -46,29 +46,26 @@ def place_marker(board, marker, position):
     board[position] = marker
 
 
-clear_screen()
 place_marker(test_board, player1_maker, 7)
 display_board(test_board)
 
 
 def win_check(board, mark):
     won = [mark, mark, mark]
-    if (board[1:4] == won or board[4:7] == won or board[7:10] == won or
+    return (board[1:4] == won or board[4:7] == won or board[7:10] == won or
             board[1:8:3] == won or board[2:9:3] == won or board[3:10:3] == won or
-            board[1:10:4] == won or board[3:8:2] == won):
-        return True
+            board[1:10:4] == won or board[3:8:2] == won)
 
 
-print((win_check(test_board, 'X')))
+(win_check(test_board, 'X'))
 
 
 def choose_first():
     coin_toast = random.randint(0, 6)
     if coin_toast % 2 == 0:
-        print(f'{player1_maker} goes first')
+        return player1_maker
     else:
-        print(f'{player2_maker} goes first')
+        return player2_maker
 
 
-clear_screen()
 choose_first()
