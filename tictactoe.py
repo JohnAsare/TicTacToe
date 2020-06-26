@@ -75,7 +75,7 @@ def full_board_check(board):
 # Ask the player for their move
 def player_choice(board):
     move = 0
-    while move not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] or space_check(board, move):
+    while move not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] or not space_check(board, move):
         move = int(input('What is your move?(1-9): '))
 
     return move
