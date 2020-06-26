@@ -75,7 +75,7 @@ def full_board_check(board):
 # Ask the player for their move
 def player_choice(board):
     move = 0
-    while move not in [range(1, 10)] or space_check(board, move):
+    while move not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] or space_check(board, move):
         move = int(input('What is your move?(1-9): '))
 
     return move
@@ -129,11 +129,29 @@ while True:
             elif full_board_check(the_board):
                 display_board(the_board)
                 print('Its a tie')
+                game_on = False
             else:
                 goes_first = 'Player 2'
 
-
-
+        elif goes_first == 'Player 2':
+            # Display the board
+            display_board(the_board)
+            # Ask for their move
+            pos = player_choice(the_board)
+            # Place their maker on the board
+            place_marker(the_board, player2_maker, pos)
+            # check if they won
+            if win_check(the_board, player2_maker):
+                display_board(the_board)
+                print('You won!')
+                game_on = False
+            # Check if it is a tie
+            elif full_board_check(the_board):
+                display_board(the_board)
+                print('Its a tie')
+                game_on = False
+            else:
+                goes_first = 'Player 1'
 
     if not replay():
         break
