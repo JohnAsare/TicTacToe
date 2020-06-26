@@ -3,6 +3,11 @@
 
 
 """Tic Tac Toe Milestone Project game! """
+import random
+
+
+def clear_screen():
+    print('\n'*100)
 
 
 # A function to print out the Tic Tac Toe board
@@ -41,7 +46,7 @@ def place_marker(board, marker, position):
     board[position] = marker
 
 
-print('\n' * 100)
+clear_screen()
 place_marker(test_board, player1_maker, 7)
 display_board(test_board)
 
@@ -54,4 +59,16 @@ def win_check(board, mark):
         return True
 
 
-print((win_check(test_board, 'X')))
+(win_check(test_board, 'X'))
+
+
+def choose_first():
+    coin_toast = random.randint(0, 6)
+    if coin_toast % 2 == 0:
+        print(f'{player1_maker} goes first')
+    else:
+        print(f'{player2_maker} goes first')
+
+
+clear_screen()
+choose_first()
