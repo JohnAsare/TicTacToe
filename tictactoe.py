@@ -6,9 +6,17 @@
 import random
 
 
+# All putting all the game together
+print('Welcome to Aj Tic Toe')
+
+while True:
+    the_board = [' '] * 10
+    break
+
+
 # Prints 100 spaces to behave like a clear screen
 def clear_screen():
-    print('\n'*100)
+    print('\n' * 100)
 
 
 # A function to print out the Tic Tac Toe board
@@ -90,10 +98,11 @@ def full_board_check(board):
 
 # Ask the player for their next moves
 def player_choice(board):
-    next_move = int(input('What is your next move?: '))
+    next_move = 0
+    while next_move not in [range(1, 10)] or space_check(board, next_move):
+        next_move = int(input('What is your next moves?(1-9): '))
 
-    if space_check(board, next_move):
-        return board[next_move]
+    return next_move
 
 
 # Ask user if they want to play again
