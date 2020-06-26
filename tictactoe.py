@@ -6,6 +6,7 @@
 import random
 
 
+# Prints 100 spaces to behave like a clear screen
 def clear_screen():
     print('\n'*100)
 
@@ -42,6 +43,7 @@ def player_input():
 player1_maker, player2_maker = player_input()
 
 
+# Place the player's marker at the position they will choose
 def place_marker(board, marker, position):
     board[position] = marker
 
@@ -50,6 +52,7 @@ place_marker(test_board, player1_maker, 7)
 display_board(test_board)
 
 
+# Check to see if there is a win
 def win_check(board, mark):
     won = [mark, mark, mark]
     return (board[1:4] == won or board[4:7] == won or board[7:10] == won or
@@ -60,6 +63,7 @@ def win_check(board, mark):
 (win_check(test_board, 'X'))
 
 
+# Randomly pick which player is going first
 def choose_first():
     coin_toast = random.randint(0, 6)
     if coin_toast % 2 == 0:
@@ -69,3 +73,13 @@ def choose_first():
 
 
 choose_first()
+
+
+# Check if there is a space on the board
+def space_check(board, position):
+    return board[position] == ' '
+
+
+# Check if all board is full
+def full_board_check(board):
+    pass
