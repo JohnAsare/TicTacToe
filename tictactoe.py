@@ -91,15 +91,25 @@ def replay():
 
 
 print('Welcome to Aj Tic Tac Toe')
+while True:
 
-# Set up the board
-the_board = [' '] * 10
-display_board(the_board)
-# Give out maker
-player1_maker, player2_maker = player_input()
+    # Set up the board
+    the_board = [' '] * 10
+    display_board(the_board)
+    # Assign the maker
+    player1_maker, player2_maker = player_input()
+    # Randomly pick who goes first
+    goes_first = choose_first()
+    print(f'{goes_first} aka {player1_maker} will go first')
 
-turn = choose_first()
-print(f'{turn} will goes first')
+    play_game = ''
+    while play_game != 'y' or play_game != 'n':
+        play_game = input('Ready to play? (Y or N): ').lower()
+    if play_game == 'y':
+        game_on = True
+    else:
+        game_on = False
 
 
-
+    if not replay():
+        break
