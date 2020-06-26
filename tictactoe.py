@@ -43,18 +43,15 @@ def place_marker(board, marker, position):
 
 print('\n' * 100)
 place_marker(test_board, player1_maker, 7)
-place_marker(test_board, player1_maker, 8)
-place_marker(test_board, player1_maker, 9)
 display_board(test_board)
 
 
 def win_check(board, mark):
     won = [mark, mark, mark]
-    for pos in range(0, 10):
-        if (board[1:4] == board[4:7] == board[7:10] == won or
-                board[1:8:3] == board[2:9:3] == board[3:10:3] == won or
-                board[1:10:4] == board[3:8:2] == won):
-            return True
+    if (board[1:4] == won or board[4:7] == won or board[7:10] == won or
+            board[1:8:3] == won or board[2:9:3] == won or board[3:10:3] == won or
+            board[1:10:4] == won or board[3:8:2] == won):
+        return True
 
 
-print(win_check(test_board, 'X'))
+print((win_check(test_board, 'X')))
