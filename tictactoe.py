@@ -21,7 +21,7 @@ def display_board(board):
     print(board[1] + '|' + board[2] + '|' + board[3])
 
 
-test_board = [' '] * 10
+test_board = ['#', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 display_board(test_board)
 
 
@@ -83,7 +83,24 @@ def space_check(board, position):
 # Check if all board is full
 def full_board_check(board):
     for i in range(1, 10):
-        if board[i] != ' ':
+        if space_check(board, i) == ' ':
             return False
-        else:
-            return True
+    return True
+
+
+# Ask the player for their next moves
+def player_choice(board):
+    next_move = int(input('What is your next move?: '))
+
+    if space_check(board, next_move):
+        return board[next_move]
+
+
+# Ask user if they want to play again
+def replay():
+    play_again = ''
+
+    while play_again != 'Y' or play_again != 'N':
+        play_again = input('Do you want to play again? (Y or N): ').upper()
+
+    return play_again == 'Y'
